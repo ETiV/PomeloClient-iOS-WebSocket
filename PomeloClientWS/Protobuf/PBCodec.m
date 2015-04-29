@@ -163,9 +163,9 @@
  */
 + (NSUInteger)encodeStr:(NSString *)str dst:(NSMutableData *)dst from:(NSUInteger)offset {
   NSData *strAsData = [str dataUsingEncoding:NSUTF8StringEncoding];
-  [dst replaceBytesInRange:NSMakeRange(offset, [str length])
+  [dst replaceBytesInRange:NSMakeRange(offset, [strAsData length])
                  withBytes:strAsData.bytes
-                    length:[str length]];
+                    length:[strAsData length]];
   return (offset + [strAsData length]);
 //  [dst setData:[str dataUsingEncoding:NSUTF8StringEncoding]];
   //log("encodeStr: %@", dst);
